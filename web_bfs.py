@@ -46,13 +46,13 @@ def level_crawler(input_url):
             if is_valid:
                 if current_url_domain not in href and href not in links_extern:
                     tulislah = "Extern - "+href
-                    print(tulislah)
+                    # print(tulislah)
                     tulislah += "\n"
                     mencrawl.write(tulislah)
                     links_extern.add(href)
                 if current_url_domain in href and href not in links_intern:
                     tulislah = "Intern - "+href
-                    print(tulislah)
+                    # print(tulislah)
                     tulislah += "\n"
                     mencrawl.write(tulislah)
                     links_intern.add(href)
@@ -62,7 +62,7 @@ def level_crawler(input_url):
 
 if(depth == 0):
     tulislah = "Intern - "+input_url
-    print(tulislah)
+    # print(tulislah)
     tulislah += "\n"
     mencrawl.write(tulislah)
 
@@ -80,6 +80,7 @@ else:
     for j in range(depth):
         for count in range(len(queue)):
             url = queue.pop(0)
+            print(url)
             urls = level_crawler(url)
             for i in urls:
                 queue.append(i)
